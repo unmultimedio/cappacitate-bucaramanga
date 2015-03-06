@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Bootcamp Bucaramanga</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_label">Send</string>
+    <string name="hint_txt">Please enter your name</string>
+    <string name="toast_msg">You just did click</string>
+
+</resources>
