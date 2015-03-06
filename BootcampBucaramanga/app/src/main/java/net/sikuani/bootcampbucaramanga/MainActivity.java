@@ -33,12 +33,34 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        String btn = "click:";
+
+        switch (id){
+            case R.id.action_settings:
+                btn += "conf";
+                break;
+            case R.id.button_2:
+                btn += "1";
+                break;
+            case R.id.button_3:
+                btn += "2";
+                break;
         }
 
+        Toast.makeText(this,btn,Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        //guardo
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        //guardo
+        super.onStop();
     }
 
     public void sendData(View view){

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="naranja_unab">#F69C1B</color>
+    <color name="rojo">#ff0000</color>
+    <color name="amarillo">#fffff324</color>
+    <color name="verde">#ff55ff40</color>
+    <color name="naranja">#ffff953e</color>
+    <color name="morado">#ffa44fff</color>
+    <color name="azul">#ff1e20ff</color>
+</resources>
