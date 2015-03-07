@@ -1,40 +1,39 @@
-package com.cappacitate2015.notifications;
+package com.cappacitate2015.fragmentos2;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
 
 
-public class ResponseNotification extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity
+ implements Communicator {
+
+    Sender sender;
+    Receiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_response_notification);
+        setContentView(R.layout.activity_main);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        Bundle extras = getIntent().getExtras();
+        sender = (Sender) getFragmentManager()
+                .findFragmentById(R.id.fragmentSender);
 
-        ((TextView)findViewById(R.id.title_response))
-                .setText(extras.getString("title"));
-        ((TextView)findViewById(R.id.content_response))
-                .setText(extras.getString("content"));
-        ((TextView)findViewById(R.id.ticker_response))
-                .setText(extras.getString("ticker"));
-        ((TextView)findViewById(R.id.content_info_response))
-                .setText(extras.getString("content_info"));
+        receiver = (Receiver) getFragmentManager()
+                .findFragmentById(R.id.fragmentReceiver);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_response_notification, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -51,5 +50,15 @@ public class ResponseNotification extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void sendUser(View view) {
+        sender.prepareUser();
+    }
+
+    @Override
+    public void send2SecondFragment(User user) {
+        receiver.updateList(user);
     }
 }

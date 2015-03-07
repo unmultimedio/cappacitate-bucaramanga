@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentSender"
+        android:layout_weight="1"
+        android:name="com.cappacitate2015.fragmentos2.Sender"/>
+
+    <fragment
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/fragmentReceiver"
+        android:layout_weight="1"
+        android:name="com.cappacitate2015.fragmentos2.Receiver"/>
+
+</LinearLayout>
