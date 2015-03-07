@@ -6,14 +6,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class MainActivity extends ActionBarActivity implements GoogleMap.OnMapLongClickListener {
+public class MainActivity extends ActionBarActivity implements
+        GoogleMap.OnMapLongClickListener,
+        GoogleMap.OnMapClickListener {
 
     GoogleMap myMap;
     int count;
@@ -43,7 +48,13 @@ public class MainActivity extends ActionBarActivity implements GoogleMap.OnMapLo
 
         Marker myMarker =  myMap.addMarker(options);
 
+        myMap.animateCamera(CameraUpdateFactory
+                .newCameraPosition(
+                        new CameraPosition(new LatLng(7.11, -73.10), 13, 0, 0)));
+
         myMap.setOnMapLongClickListener(this);
+
+        myMap.setOnMapClickListener(this);
 
         count=0;
 
@@ -100,4 +111,13 @@ public class MainActivity extends ActionBarActivity implements GoogleMap.OnMapLo
                 .title("Clic:"+String.valueOf(count))
                 .draggable(true));
     }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        Toast.makeText(this,
+                latLng.latitude+","+latLng.longitude,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    //http://bit.ly/cappacitate2015-bucaramanga-reto
 }
